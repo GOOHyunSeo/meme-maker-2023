@@ -57,7 +57,13 @@ canvas {
   border-radius: 50%;
   cursor: pointer;
   margin: 10px;
+  border: 3px gainsboro solid;
+  transition: transform 0.1s ease-in-out;
 }
+.color-option:hover {
+  transform: scale(1.5);
+}
+
 .width-option {
   display: flex;
   align-items: center;
@@ -102,10 +108,69 @@ label {
   align-items: center;
   font-size: 20px;
 }
+span {
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+span:hover {
+  opacity: 0.4;
+}
+
 .btns {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+#text-input {
+  width: 260px;
+  height: 40px;
+  padding: 7px 15px;
+  margin: 0px 5px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 5px;
+}
+.text-customs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#mode-btn,
+.text-custom {
+  padding: 7px 15px;
+  margin: 0px 5px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#mode-btn:hover,
+.text-custom:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#mode-btn {
+  width: 40px;
+  height: 20px;
+}
+.text-custom:first-child {
+  width: 70px;
+  height: 35px;
+}
+.text-custom:nth-child(2) {
+  width: 160px;
+  height: 35px;
+}
+.text-custom:last-child {
+  width: 60px;
+  height: 20px;
 }
 
 .border {
@@ -115,6 +180,6 @@ span {
   margin-top: 15px;
 }
 
-i.hidden {
+.hidden {
   display: none;
 }

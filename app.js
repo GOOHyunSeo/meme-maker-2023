@@ -5,6 +5,8 @@ const CANVAS_HEIGHT = 700;
 
 const destroyBtn = document.getElementById("destroy-btn");
 const modeBtn = document.getElementById("mode-btn");
+const fillIcon = document.getElementsByClassName("fill-icon");
+const drawIcon = document.getElementsByClassName("draw-icon");
 const eraseBtn = document.getElementById("erase-btn");
 const color = document.getElementById("color");
 const colorOptions = Array.from(
@@ -14,7 +16,16 @@ const lineWidth = document.getElementById("line-width");
 const saveBtn = document.getElementById("save-btn");
 
 const textInput = document.getElementById("text-input");
+const textSize = document.getElementById("text-size");
+const textFont = document.getElementById("text-font");
+const textBtn = document.getElementById("text-btn");
 const fileInput = document.getElementById("file-input");
+
+const RocknRollOne = new FontFace(
+  "RocknRollOne",
+  "url(RocknRoll_One/RocknRollOne-Regular.ttf)"
+);
+RocknRollOne.load().then(function () {});
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
@@ -23,6 +34,7 @@ ctx.lineCap = "round";
 
 let isDrawing = false;
 let isFilling = false;
+let isOutline = false;
 
 function onMove(event) {
   if (isDrawing == true) {
@@ -46,24 +58,37 @@ function onCanvasClick() {
 }
 function onCanvasDoubleClick(event) {
   const text = textInput.value;
+  const textSizeValue = parseInt(textSize.value);
+  const textFontValue = textFont.value;
   if (text !== null) {
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "40px serif";
-    ctx.strokeText(text, event.offsetX, event.offsetY);
+    ctx.font = `${textSizeValue}px ${textFontValue}`;
+    if (isOutline) {
+      ctx.fillText(text, event.offsetX, event.offsetY);
+    } else {
+      ctx.strokeText(text, event.offsetX, event.offsetY);
+    }
     ctx.restore();
   }
 }
 
 function onDestroyClick() {
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  const answer = confirm("You really want to destroy?");
+  if (answer) {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  }
 }
 function onModeClick() {
   if (isFilling) {
+    // console.log("draw clicked!");
+    // fillIcon.classList.remove("hidden");
     modeBtn.innerText = "Fill";
     isFilling = false;
   } else {
+    // console.log("fill clicked!!!!");
+    // drawIcon.classList.remove("hidden");
     modeBtn.innerText = "Draw";
     isFilling = true;
   }
@@ -96,6 +121,15 @@ function onSaveClick() {
   a.click();
 }
 
+function onTextBtnClick() {
+  if (isOutline) {
+    textBtn.innerText = "Solid";
+    isOutline = false;
+  } else {
+    textBtn.innerText = "Outline";
+    isOutline = true;
+  }
+}
 function onFileChange(event) {
   const file = event.target.files[0];
   const url = URL.createObjectURL(file);
@@ -122,4 +156,5 @@ colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 lineWidth.addEventListener("change", onLineWidthChange);
 saveBtn.addEventListener("click", onSaveClick);
 
+textBtn.addEventListener("click", onTextBtnClick);
 fileInput.addEventListener("change", onFileChange);

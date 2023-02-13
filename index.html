@@ -16,9 +16,7 @@
           <span>Destroy</span>
         </button>
         <div class="btns border">
-          <button id="mode-btn">
-            <span>Fill</span>
-          </button>
+          <button id="mode-btn">Fill</button>
           <button id="erase-btn">
             <i class="fas fa-eraser fa-2x"></i>
             <span>Erase</span>
@@ -89,7 +87,34 @@
         </button>
       </div>
       <div class="customs__column">
-        <input id="text-input" type="text" placeholder="Add text here :)" />
+        <div class="btns">
+          <input id="text-input" type="text" placeholder="Add text here :)" />
+          <div class="text-customs">
+            <select id="text-size" class="text-custom">
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+              <option>35</option>
+              <option>40</option>
+              <option>45</option>
+              <option selected>50</option>
+              <option>55</option>
+              <option>60</option>
+              <option>65</option>
+              <option>70</option>
+              <option>75</option>
+            </select>
+            <select id="text-font" class="text-custom">
+              <option>sans-serif</option>
+              <option>serif</option>
+              <option>monospace</option>
+              <option>cursive</option>
+              <option>fantasy</option>
+              <option>system-ui</option>
+            </select>
+            <button id="text-btn" class="text-custom">Solid</button>
+          </div>
+        </div>
         <label for="file-input" class="border">
           <i class="far fa-image fa-2x"></i>
           <span>Add photo</span>

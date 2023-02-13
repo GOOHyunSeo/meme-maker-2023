@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Maker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas></canvas>
+    <div id="customs">
+      <div class="customs__column">
+        <button id="destroy-btn">
+          <i class="far fa-trash-alt fa-2x"></i>
+          <span>Destroy</span>
+        </button>
+        <div class="btns border">
+          <button id="mode-btn">
+            <span>Fill</span>
+          </button>
+          <button id="erase-btn">
+            <i class="fas fa-eraser fa-2x"></i>
+            <span>Erase</span>
+          </button>
+        </div>
+        <div class="btns border">
+          <div class="color-options">
+            <div class="color-options__column">
+              <div
+                class="color-option"
+                style="background-color: #e74c3c"
+                data-color="#e74c3c"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #e67e22"
+                data-color="#e67e22"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #f1c40f"
+                data-color="#f1c40f"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #27ae60"
+                data-color="#27ae60"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #3498db"
+                data-color="#3498db"
+              ></div>
+            </div>
+            <div class="color-options__column">
+              <div
+                class="color-option"
+                style="background-color: #254463"
+                data-color="#254463"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #8e44ad"
+                data-color="#8e44ad"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #3e4242"
+                data-color="#3e4242"
+              ></div>
+              <div
+                class="color-option"
+                style="background-color: #bdc3c7"
+                data-color="#bdc3c7"
+              ></div>
+              <input id="color" type="color" />
+            </div>
+          </div>
+          <div class="width-option">
+            <i class="fas fa-brush fa-sm"></i>
+            <input id="line-width" type="range" min="1" max="10" value="5" />
+            <i class="fas fa-brush fa-lg"></i>
+          </div>
+        </div>
+        <button id="save-btn" class="border">
+          <i class="far fa-save fa-2x"></i>
+          <span>Save</span>
+        </button>
+      </div>
+      <div class="customs__column">
+        <input id="text-input" type="text" placeholder="Add text here :)" />
+        <label for="file-input" class="border">
+          <i class="far fa-image fa-2x"></i>
+          <span>Add photo</span>
+          <input id="file-input" type="file" accept="image/*" />
+        </label>
+      </div>
+    </div>
+    <script src="app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

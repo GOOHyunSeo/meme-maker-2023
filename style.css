@@ -1,1 +1,120 @@
 @import "reset.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  background-color: ghostwhite;
+}
+
+canvas {
+  width: 700px;
+  height: 700px;
+  border: 5px solid black;
+  background-color: white;
+}
+#customs {
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.customs__column {
+  width: 620px;
+  height: 300px;
+  border: 5px solid black;
+  background-color: white;
+  display: grid;
+  padding: 40px 10px;
+  border-radius: 10px;
+}
+.customs__column:first-child {
+  grid-template-columns: 1fr 1fr 3fr 1fr;
+}
+.customs__column:last-child {
+  grid-template-columns: 2fr 1fr;
+}
+
+.color-options {
+  display: flex;
+  flex-direction: column;
+}
+.color-options__column {
+  display: flex;
+  align-items: center;
+}
+
+.color-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 10px;
+}
+.width-option {
+  display: flex;
+  align-items: center;
+}
+#line-width {
+  margin: 0px 15px;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /*기본 스타일을 사용할지 말지 정하기 */
+  height: 15px;
+  width: 15px;
+  border-radius: 15px;
+  outline: 0;
+  border: 0;
+  background: black;
+}
+
+input#color {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+}
+
+input#file-input {
+  display: none;
+}
+
+button,
+.btns,
+label {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.border {
+  border-left: 1px solid gainsboro;
+}
+span {
+  margin-top: 15px;
+}
+
+i.hidden {
+  display: none;
+}
